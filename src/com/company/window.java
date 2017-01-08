@@ -4,10 +4,10 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import static com.company.myContent.persX;
+import static com.company.myContentpers.persX;
 
 public class window extends JFrame {
-private myContent content=new myContent();
+private myContentpers content=new myContentpers();
 
     window(int width,int height) {
         this.setTitle("Hi");
@@ -27,13 +27,10 @@ private myContent content=new myContent();
         @Override
         public void keyPressed(KeyEvent e) {
 
-            if(e.getKeyCode()==87){
-
-                move(20,0);//up!
-            }
-            if(e.getKeyCode()==65)move(20,0);//left!
-            if(e.getKeyCode()==83)move(20,0);//down!
-            if(e.getKeyCode()==68)move(20,0);//right!
+            if(e.getKeyCode()==87)content.mymove(0,-20);
+            if(e.getKeyCode()==65)content.mymove(-20,0);
+            if(e.getKeyCode()==83)content.mymove(0,20);
+            if(e.getKeyCode()==68)content.mymove(20,0);
 
         }
 
