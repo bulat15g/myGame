@@ -14,6 +14,7 @@ import java.io.IOException;
 public class myContentpers extends JPanel{
     public Timer timerDraw,timerUpdate;
     private BufferedImage image1;
+    private otherObjects myotherObjects=new otherObjects();
     public static Integer persX=0,persY=0;
 
     public myContentpers(){
@@ -33,10 +34,11 @@ public class myContentpers extends JPanel{
         persX+=x;
         persY+=y;
 
-        if(timerUpdate.isRunning()&&timerUpdate!=null)timerUpdate.stop();
+        if(timerUpdate!=null) {
+            if (timerUpdate.isRunning()) timerUpdate.stop();
+        }
         timerUpdate = new Timer(1, new ActionListener(){
             public void actionPerformed(ActionEvent e ) {
-
 
             }
         });
@@ -50,10 +52,8 @@ public class myContentpers extends JPanel{
 
         g.clearRect(0,0,getWidth(),getHeight());
         g.fillOval(100,100,50,40);
-
-
         g.drawImage(image1,300+persX,300+persY,null);
-
+        myotherObjects.paint(g);
     }
 
     public void initiate(){
