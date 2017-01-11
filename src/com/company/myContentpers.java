@@ -15,24 +15,21 @@ public class myContentpers extends JPanel{
     public Timer timerDraw,timerUpdate;
     private BufferedImage image1;
     private otherObjects myotherObjects=new otherObjects();
-    public static Integer persX=0,persY=0;
+    public static Integer persX=300,persY=300;
 
     public myContentpers(){
         initiate();
 
 
-        timerDraw=new Timer(1, new ActionListener(){
-            public void actionPerformed(ActionEvent e ) {
-                repaint();
-            }
-        });
-        timerDraw.start();
+
 
     }
 
     public void mymove(int x,int y){
-        persX+=x;
-        persY+=y;
+        if(myotherObjects.pers_canmoovie(persX,persY,x,y)) {
+            persX += x;
+            persY += y;
+        }
 
         if(timerUpdate!=null) {
             if (timerUpdate.isRunning()) timerUpdate.stop();
@@ -45,15 +42,17 @@ public class myContentpers extends JPanel{
         timerUpdate.start();
     }
 
+    private void xyTreasure(){
 
+    }
 
 
     public void paint(Graphics g){
 
         g.clearRect(0,0,getWidth(),getHeight());
-        g.fillOval(100,100,50,40);
-        g.drawImage(image1,300+persX,300+persY,null);
         myotherObjects.paint(g);
+        g.drawImage(image1,persX,persY,null);
+
     }
 
     public void initiate(){
@@ -63,6 +62,12 @@ public class myContentpers extends JPanel{
             ex.printStackTrace();
             System.out.println("cant find image");
         }
+        timerDraw=new Timer(10, new ActionListener(){
+            public void actionPerformed(ActionEvent e ) {
+                repaint();
+            }
+        });
+        timerDraw.start();
     }
 
 }
