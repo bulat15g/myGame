@@ -37,7 +37,6 @@ private myContentpers content=new myContentpers();
         @Override
         public void keyReleased(KeyEvent e) {
             if(e.getKeyCode()==27)System.exit(0);
-
         }
 
     }
