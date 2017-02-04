@@ -1,18 +1,14 @@
 package com.company;
 
-import com.sun.xml.internal.fastinfoset.util.CharArray;
-import com.sun.xml.internal.fastinfoset.util.CharArrayString;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Arc2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 
 public class myContentpers extends JPanel{
@@ -47,7 +43,6 @@ public class myContentpers extends JPanel{
                     money*=1.1;
                 };
             }
-
         }
 
         if(timerUpdate!=null) {
@@ -67,7 +62,7 @@ public class myContentpers extends JPanel{
         g.drawImage(image1,persX,persY,null);
         g.setColor(Color.RED);
             messageattop="money:="+money+"                 ";
-            g.drawChars(messageattop.toCharArray(),0,10,20,20);
+            g.drawChars(messageattop.toCharArray(),0,12,20,20);
         g.setColor(Color.BLACK);
     }
 
@@ -75,7 +70,7 @@ public class myContentpers extends JPanel{
         messageattop="money:="+money+"                 ";
 
         try {
-            image1 = ImageIO.read(new File("pers.png"));
+            image1 = ImageIO.read(new File("pony.png"));
         } catch (IOException ex) {
             ex.printStackTrace();
             System.out.println("cant find image");
